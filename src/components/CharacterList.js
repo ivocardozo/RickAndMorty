@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { RickMortyContext } from '../context'
 import { makeStyles } from '@material-ui/core/styles'
 import { ImageList } from '@material-ui/core'
+import Character from './Character'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -24,9 +25,12 @@ const CharacterList = () => {
     <ImageList className={classes.gridList}>
       {
         data.map(char => (
-            <div key={char.id}>
-                <h2>{char.name}</h2>
-            </div>
+            <Character
+                key={char.id}
+                image={char.image}
+                name={char.name}
+            >
+            </Character>
         ))
       }
     </ImageList>
