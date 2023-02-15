@@ -8,6 +8,7 @@ const RickMortyContext = React.createContext()
 const RickMortyProvider = (props) => {
   // Initialize data
   const [data, setData] = useState([])
+  const [info, setInfo] = useState([])
 
   //initialize loading
   const [isLoading, setIsLoading] = useState(true)
@@ -24,6 +25,7 @@ const RickMortyProvider = (props) => {
       .json()
       .then(res => {
         setData(res.results)
+        setInfo(res.info)
       })
       .catch(error => setIsLoading(true))
   }
@@ -31,6 +33,7 @@ const RickMortyProvider = (props) => {
   return (
     <RickMortyContext.Provider
       value={{
+        info,
         data,
         isLoading
       }}
