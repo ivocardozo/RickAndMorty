@@ -30,11 +30,18 @@ const RickMortyProvider = (props) => {
       .catch(error => setIsLoading(true))
   }
 
+  const fetchPage = page => {
+    let query = `${url}/?page=${page}`
+    console.log(query)
+    fetchData(query)
+  }
+
   return (
     <RickMortyContext.Provider
       value={{
         info,
         data,
+        fetchPage,
         isLoading
       }}
     >
