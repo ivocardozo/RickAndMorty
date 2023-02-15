@@ -5,15 +5,13 @@ import { ImageList } from '@material-ui/core'
 import Character from './Character'
 
 const useStyles = makeStyles(theme => ({
-    root: {
+    gridList: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         overflow: 'hidden',
     },
-    gridList: {
-        width: '100%'
-    }
+    
 }))
 
 const CharacterList = () => {
