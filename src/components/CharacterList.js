@@ -1,37 +1,19 @@
 import React, { useContext } from 'react'
 import { RickMortyContext } from '../context'
-import { makeStyles } from '@material-ui/core/styles'
-import { ImageList } from '@material-ui/core'
 import Character from './Character'
-
-const useStyles = makeStyles(theme => ({
-    gridList: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        overflow: 'hidden',
-    },
-    
-}))
+import classes from './CharacterList.module.css'
 
 const CharacterList = () => {
-    const classes = useStyles()
-    const appContext = useContext(RickMortyContext)
-    const { data } = appContext
+  
+  const appContext = useContext(RickMortyContext)
+  const { data } = appContext
 
   return (
-    <ImageList className={classes.gridList}>
-      {
-        data.map(char => (
-            <Character
-                key={char.id}
-                image={char.image}
-                name={char.name}
-            >
-            </Character>
-        ))
-      }
-    </ImageList>
+    <div className={classes.gridList}>
+      {data.map(char => (
+        <Character key={char.id} image={char.image} name={char.name} />
+      ))}
+    </div>
   )
 }
 
