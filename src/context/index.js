@@ -40,4 +40,4 @@ const RickMortyProvider = (props) => {
     )
 }
 
-export default { RickMortyProvider, RickMortyContext }
+export { RickMortyProvider, RickMortyContext }
