@@ -4,11 +4,12 @@ import { RickMortyContext } from '../context'
 
 const Page = () => {
     const appContext = useContext(RickMortyContext)
-    const { info } = appContext
+    const { info, fetchPage } = appContext
   return (
     <div>
         <Pagination 
             count={info.pages}
+            onChange={(event, page) => fetchPage(page)}
         />
     </div>
   )
