@@ -7,7 +7,7 @@ const RickMortyProvider = (props) => {
     const [data, setData] = useState([])
     
     useEffect(() => {
-
+        fetchData(url)
     }, [])
 
     const fetchData = async(url) => {
@@ -17,6 +17,7 @@ const RickMortyProvider = (props) => {
         res
             .json()
             .then(res => {
+                console.log("<<<<<< data", data)
                 setData(res.results)
             })
             .catch(error => {})
@@ -33,4 +34,4 @@ const RickMortyProvider = (props) => {
     )
 }
 
-export { RickMortyContext, RickMortyProvider}
+export { RickMortyProvider, RickMortyContext }
