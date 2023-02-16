@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
-import { RickMortyContext } from "./context";
+import React from "react";
+
+import CharacterList from "./components/CharacterList";
+
 function App() {
-  const appContext = useContext(RickMortyContext)
-  const { data } = appContext
   return (
     <div>
-      {data.map(item => (
-        <li key={item.id}>{item.name}</li>
-      ))}
+      <CharacterList />
     </div>
   );
 }
