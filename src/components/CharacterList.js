@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { RickMortyContext } from '../context'
 import classes from './CharacterList.module.css'
+import Character from './Character'
 
 const CharacterList = () => {
     const dataContext = useContext(RickMortyContext)
@@ -8,7 +9,11 @@ const CharacterList = () => {
   return (
     <div className={classes.gridList}>
         {data.map(character => (
-            <li key={character.id}>{character.name}</li>
+            <Character 
+                key={character.id}
+                name={character.name}
+                image={character.image}
+            />
         ))}
     </div>
   )
