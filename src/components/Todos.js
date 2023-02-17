@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Todos = () => {
+const Todos = (props) => {
+    const { items } = props
   return (
     <ul>
-        <li>Learn Rect</li>
-        <li>Learn Redux</li>
+        {items.map(itemObject => (
+            <li key={itemObject.id}>{itemObject.item}</li>
+        ))}
     </ul>
   )
 }
