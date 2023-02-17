@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { RickMortyContext } from '../context'
 import { Pagination } from '@material-ui/lab'
+import classes from './Page.module.css'
 
 const Page = () => {
     const appContext = useContext(RickMortyContext)
@@ -8,6 +9,9 @@ const Page = () => {
   return (
     <div>
       <Pagination
+        className={classes.pages}
+        color='primary'
+        size='large'
         count={info.pages}
         onChange={(event, page) => fetchPage(page)}
       />
