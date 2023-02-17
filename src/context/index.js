@@ -1,20 +1,21 @@
-import { createContext, useState } from 'react'
-
-const mockData = [
-    {
-        name: "Rick",
-        id: '1'
-    },
-    {
-        name: "Morty",
-        id: '2'
-    }
-]
+import { createContext, useState, useEffect } from 'react'
 
 const RickMortyContext = createContext()
-
+const url = 'https://rickandmortyapi.com/api/character'
 const RickMortyProvider = (props) => {
-    const [data, setData] = useState(mockData)
+    useEffect(() => {
+        fetchData(url)
+    }, [])
+
+    const [data, setData] = useState([])
+    const fetchData = async (url) => {
+        const res = await fetch(url)
+        res
+            .json()
+            .then(res => {
+                setData(res.results)
+            })
+    }
   return (
     <RickMortyContext.Provider
         value={{
