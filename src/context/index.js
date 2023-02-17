@@ -9,6 +9,7 @@ const RickMortyProvider = (props) => {
     }, [])
 
     const [data, setData] = useState([])
+    const [info, setInfo] = useState([])
 
     const fetchData = async (url) => {
         let query = `${url}`
@@ -18,13 +19,22 @@ const RickMortyProvider = (props) => {
             .json()
             .then(res => {
                 setData(res.results)
+                setInfo(res.info)
             })
             .catch(error => {})
     }
+
+    const fetchPage = page => {
+        let query = `${url}/?page=${page}`
+        fetchData(query)
+    }
+
     return (
     <RickMortyContext.Provider
         value={{
-            data
+            data,
+            info,
+            fetchPage
         }}
     >
       {props.children}
