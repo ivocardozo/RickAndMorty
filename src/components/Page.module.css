@@ -1,0 +1,9 @@
+.pages {
+    background-color: #dadada;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    transform: scale(1.1);
+}
