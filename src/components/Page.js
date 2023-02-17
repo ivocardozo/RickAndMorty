@@ -4,10 +4,12 @@ import { Pagination } from '@material-ui/lab'
 
 const Page = () => {
     const appContext = useContext(RickMortyContext)
+    const { info, fetchPage } = appContext
   return (
     <div>
       <Pagination
-        count={20}
+        count={info.pages}
+        onChange={(event, page) => fetchPage(page)}
       />
     </div>
   )

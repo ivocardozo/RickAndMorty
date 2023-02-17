@@ -5,6 +5,7 @@ const RickMortyContext = React.createContext()
 
 const RickMortyProvider = (props) => {
     const [data, setData] = useState([])
+    const [info, setInfo] = useState([])
     
     useEffect(() => {
         fetchData(url)
@@ -19,14 +20,21 @@ const RickMortyProvider = (props) => {
             .then(res => {
                 console.log("<<<<<< data", data)
                 setData(res.results)
+                setInfo(res.info)
             })
             .catch(error => {})
     }
 
+    const fetchPage = page => {
+        let query = `${url}/?page=${page}`
+        fetchData(query)
+    }
     return (
         <RickMortyContext.Provider
             value={{
-                data
+                data,
+                info,
+                fetchPage
             }}
         >
             {props.children}
