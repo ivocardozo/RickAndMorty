@@ -1,4 +1,5 @@
 import Todos from "./components/Todos";
+import NewTodo from "./components/NewTodo";
 
 const todos = [
   {
@@ -13,7 +14,10 @@ const todos = [
 
 function App() {
   return (
-    <Todos items={todos}/>
+    <div>
+      <NewTodo />
+      <Todos items={todos}/>
+    </div>
   );
 }
 
