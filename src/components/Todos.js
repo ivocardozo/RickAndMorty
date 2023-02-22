@@ -7,7 +7,11 @@ const Todos = (props) => {
   return (
     <ul className={classes.todos}>
         {items.map(itemObject => (
-            <TodoItem key={itemObject.id} text={itemObject.text}/>
+            <TodoItem 
+              key={itemObject.id} 
+              text={itemObject.text}
+              onRemoveTodo={props.onRemoveTodo.bind(null, itemObject.id)}
+            />
         ))}
     </ul>
   )
