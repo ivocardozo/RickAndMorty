@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
 
+import classes from './NewTodo.module.css'
+
 const NewTodo = (props) => {
     const textRef = useRef('')
     const submitHandler = (event) => {
@@ -12,7 +14,7 @@ const NewTodo = (props) => {
         props.onAddTodo(enteredInputText)
     }
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className={classes.form}>
       <label htmlFor='text'>Todo text</label>
       <input 
         type='text'
