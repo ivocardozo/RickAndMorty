@@ -13,9 +13,13 @@ const todos = [
 ]
 
 function App() {
+  const addTodoHandler = (text) => {
+    console.log('inside add todo handler')
+  }
+
   return (
     <div>
-      <NewTodo />
+      <NewTodo onAddTodo={addTodoHandler}/>
       <Todos items={todos}/>
     </div>
   );

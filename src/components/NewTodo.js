@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-const NewTodo = () => {
+const NewTodo = (props) => {
     const textRef = useRef('')
     const submitHandler = (event) => {
         event.preventDefault()
@@ -9,6 +9,7 @@ const NewTodo = () => {
         if(enteredInputText.trim() === 0) {
             return
         }
+        props.onAddTodo(enteredInputText)
     }
   return (
     <form onSubmit={submitHandler}>
